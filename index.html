@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<style>
+html, body {
+	height: 100%;
+	margin: 0px;
+	overflow: hidden;
+}
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+div {
+	width: 50vmin;
+	height: 50vmin;
+	border-radius: 5vmin;
+	background: rgb(64, 218, 34);
+	box-shadow: 0px 0px 5vmin 0px rgba(0, 0, 0, 0.41);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+div::before {
+  content: "";
+  background: white;
+  width: 7vmin;
+  height: 7vmin;
+  border-radius: 50%;
+}
+
+div.d2::before {
+  background: transparent;
+  box-shadow: -10vmin 0 0 0 white,
+              10vmin 0 0 0 white;
+}
+
+div.d3::before {
+  box-shadow: -10vmin -10vmin 0 0 white,
+              10vmin 10vmin 0 0 white;
+}
+
+div.d4::before {
+  background: transparent;
+  box-shadow: -10vmin -10vmin 0 0 white,
+              -10vmin 10vmin 0 0 white,
+              10vmin -10vmin 0 0 white,
+              10vmin 10vmin 0 0 white;
+}
+
+div.d5::before {
+  box-shadow: -10vmin -10vmin 0 0 white,
+              -10vmin 10vmin 0 0 white,
+              10vmin -10vmin 0 0 white,
+              10vmin 10vmin 0 0 white;
+}
+
+div.d6::before {
+  background: transparent;
+  box-shadow: -10vmin -10vmin 0 0 white,
+              -10vmin 10vmin 0 0 white,
+              10vmin -10vmin 0 0 white,
+              10vmin 10vmin 0 0 white,
+              10vmin 0 0 0 white,
+              -10vmin 0 0 0 white;
+}
+</style>
+<div class="d1">
+<script>
+document.querySelector("div").addEventListener("click", function() {
+	var value = Math.ceil(Math.random()*6);
+	this.className = "d" + value;
+});
+</script>
