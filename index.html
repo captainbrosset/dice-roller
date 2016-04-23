@@ -19,6 +19,8 @@ div {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
+	transition: transform .2s, background .2s;
 }
 div::before {
   content: "";
@@ -63,11 +65,24 @@ div.d6::before {
               10vmin 0 0 0 white,
               -10vmin 0 0 0 white;
 }
+div.d1 {transform: rotate(.25turn)}
+div.d2 {transform: rotate(.5turn)}
+div.d3 {transform: rotate(.75turn)}
+div.d4 {transform: rotate(1turn)}
+div.d5 {transform: rotate(1.25turn)}
+div.d6 {transform: rotate(1.5turn)}
 </style>
 <div class="d1">
 <script>
-document.querySelector("div").addEventListener("click", function() {
+var dice = document.querySelector("div");
+function c() {
+	return Math.floor(Math.random()*255):
+}
+function roll() {
 	var value = Math.ceil(Math.random()*6);
-	this.className = "d" + value;
-});
+	dice.className = "d" + value;
+	dice.style.background = "rgb(" + c() + "," + c() + "," + c() + ")";
+}
+dice.addEventListener("click", roll);
+dice.addEventListener("touchstart", roll);
 </script>
